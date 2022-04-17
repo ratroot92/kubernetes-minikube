@@ -1,0 +1,19 @@
+
+
+docker build --pull --rm -f "/home/asd/Desktop/development/kubernetes-minikube/Dockerfile.auth-microservice.yaml" -t maliksblr92/auth-microservice:latest .
+
+docker run --rm -it  -p 3000:3000/tcp maliksblr92/auth-microservice:latest
+ docker run --rm -it  -p 3001:3001/tcp maliksblr92/auth-microservice:latest
+
+
+
+
+final command to build and run authservice
+
+ docker build --no-cache  -f "Dockerfile.kafka" -t maliksblr92/auth-microservice:latest . &&  docker run --rm -it  -p 3001:3001/tcp maliksblr92/auth-microservice:latest
+ docker build  -f "Dockerfile.kafka" -t maliksblr92/auth-microservice:latest . &&  docker run --rm -it  -p 3001:3001/tcp maliksblr92/auth-microservice:latest
+
+
+
+docker-compose -f "docker-compose.kafka0.yaml" up 
+docker-compose -f "docker-compose.microservice.yaml" up 

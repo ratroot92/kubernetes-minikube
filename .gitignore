@@ -1,0 +1,5 @@
+auth-microservice/*
+/auth-microservice
+
+/data/auth-db
+data/auth-db/*
