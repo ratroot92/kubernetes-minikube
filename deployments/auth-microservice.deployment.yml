@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: auth-microservice-deployment
+  labels:
+    app: auth-microservice
+# spec:
+#   selector:
+#     matchLabels:
+#       app: auth-microservice
+#   template:
+#     metadata:
+#       labels:
+#         app: auth-microservice
+spec:
+  containers:
+  - name: auth-microservice 
+    image: maliksblr92/auth-microservice:latest
+    ports: 
+    - containerPort: 3000
