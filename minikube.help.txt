@@ -5,3 +5,56 @@ minikube start
 
  wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
 
+
+
+
+
+
+
+### build and push container 
+docker build --no-cache -f Dockerfile.kafka -t maliksblr92/auth-microservice:latest . && docker push maliksblr92/auth-microservice:latest
+
+
+### delete and start again auth-microservice
+kubectl delete pods auth-microservice-deployment && kubectl apply -f auth-microservice-deployment.yml 
+
+
+
+###
+kafka-broker-deployment
+###
+kubectl delete pods kafka 
+kubectl delete service kafka
+
+
+kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/kafka-broker-deployment.yml
+kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/kafka-broker-service.yml
+
+kubectl delete pods kafka && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/kafka-broker-deployment.yml
+kubectl delete service kafka && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/kafka-broker-service.yml
+
+kubectl logs --follow kafka kafka
+
+
+###
+zookeeper-deployment
+###
+kubectl delete service zookeeper
+kubectl delete pods zookeeper
+
+kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/zookeeper-deployment.yml 
+kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/zookeeper-service.yml
+
+kubectl delete pods zookeeper && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/zookeeper-deployment.yml 
+kubectl delete service zookeeper && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/zookeeper-service.yml
+
+kubectl logs --follow zookeeper zookeeper
+
+
+### logging 
+kubectl logs --follow  auth-microservice-deployment auth-microservice
+kubectl logs --follow zookeeper 
+
+
+
+

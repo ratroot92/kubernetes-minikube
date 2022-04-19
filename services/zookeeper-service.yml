@@ -1,27 +1,32 @@
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: zoo1
+  name:  zookeeper
   labels:
-    app: zookeeper
+    name: zookeeper
 spec:
   selector:
-      app: zookeeper
-      id: "0"
+      name: zookeeper
+      # id: "0"
   type: NodePort
   ports:
     - name: client
       port: 3052
       targetPort: 2181
       nodePort: 31519
+      protocol: TCP
 
     - name: follower
       port: 3053
       targetPort: 2888
       nodePort: 31520
+      protocol: TCP
 
     - name: leader
       port: 3054
       targetPort: 3888
       nodePort: 31521
+      protocol: TCP
+
 

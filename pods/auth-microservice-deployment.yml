@@ -4,17 +4,13 @@ metadata:
   name: auth-microservice-deployment
   labels:
     app: auth-microservice
-# spec:
-#   selector:
-#     matchLabels:
-#       app: auth-microservice
-#   template:
-#     metadata:
-#       labels:
-#         app: auth-microservice
 spec:
   containers:
   - name: auth-microservice 
     image: maliksblr92/auth-microservice:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
     ports: 
-    - containerPort: 3000
+    - containerPort: 3001
