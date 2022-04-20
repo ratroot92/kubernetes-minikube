@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: zookeeper
+  name: zookeeper-deployment
   labels:
     name: zookeeper
   #   id: "0"
@@ -19,4 +19,4 @@ spec:
     - name: ZOOKEEPER_ID
       value: "1" 
     - name: ZOOKEEPER_SERVER_1
-      value: zookeeper
+      value: "zookeeper"

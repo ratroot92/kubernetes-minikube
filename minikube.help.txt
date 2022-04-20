@@ -23,17 +23,18 @@ kubectl delete pods auth-microservice-deployment && kubectl apply -f auth-micros
 ###
 kafka-broker-deployment
 ###
-kubectl delete pods kafka 
-kubectl delete service kafka
+kubectl delete pods kafka-deployment
+kubectl delete service kafka-service
 
 
 kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/kafka-broker-deployment.yml
 kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/kafka-broker-service.yml
 
-kubectl delete pods kafka && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/kafka-broker-deployment.yml
-kubectl delete service kafka && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/kafka-broker-service.yml
 
-kubectl logs --follow kafka kafka
+kubectl delete pods kafka-deployment && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/kafka-broker-deployment.yml
+kubectl delete service kafka-service && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/kafka-broker-service.yml
+
+kubectl logs --follow kafka-deployment 
 
 
 ###
@@ -45,10 +46,10 @@ kubectl delete pods zookeeper
 kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/zookeeper-deployment.yml 
 kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/zookeeper-service.yml
 
-kubectl delete pods zookeeper && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/zookeeper-deployment.yml 
-kubectl delete service zookeeper && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/zookeeper-service.yml
+kubectl delete pods zookeeper-deployment && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/pods/zookeeper-deployment.yml 
+kubectl delete service zookeeper-service && kubectl apply -f /home/asd/Desktop/development/kubernetes-minikube/services/zookeeper-service.yml
 
-kubectl logs --follow zookeeper zookeeper
+kubectl logs --follow zookeeper-deployment
 
 
 ### logging 

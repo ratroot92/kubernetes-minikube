@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kafka
+  name: kafka-service
   labels:
     name: kafka
 spec:
@@ -10,10 +10,10 @@ spec:
   ports:
     - port: 3051
       targetPort: 9092
-      nodePort: 31517
+      nodePort: 30718
   selector:
     app: kafka
-    # id: "0"
+    id: "0"
 
 
 
